@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Cumpleaños ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+min-height:100vh;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+width:100%;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:30px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+color:white;
+position:relative;
+z-index:10;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.subtitulo{
+font-size:1.2rem;
+margin-bottom:20px;
+}
+
+.foto{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:50%;
+border:6px solid white;
+box-shadow:0 0 25px rgba(255,255,255,.8);
+transition:.5s;
+}
+
+.foto:hover{
+transform:scale(1.05);
+}
+
+.btn{
+margin-top:20px;
+padding:15px 30px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f7b;
+font-size:1rem;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 5px 20px rgba(255,255,255,.5);
+}
+
+.mensaje{
+margin-top:25px;
+display:none;
+background:rgba(255,255,255,.2);
+padding:25px;
+border-radius:20px;
+line-height:1.8;
+font-size:1.1rem;
+}
+
+.contador{
+margin-top:25px;
+font-size:1.2rem;
+font-weight:bold;
+}
+
+.corazon{
+position:fixed;
+font-size:20px;
+animation:flotar 8s linear infinite;
+opacity:.8;
+}
+
+@keyframes flotar{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+footer{
+margin-top:25px;
+font-size:14px;
+opacity:.9;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎂 Feliz Cumpleaños Maribel❤️</h1>
+
+<p class="subtitulo">
+Hoy celebramos el día más bonito del año...
+porque nació la persona que hace más feliz mi corazón.
+</p>
+
+<!-- CAMBIAR IMAGEN -->
+<img src="imagen/cumple.jpg" class="imagen">
+
+<br>
+
+<button class="btn" onclick="reproducirMusica()">
+🎵 Reproducir Nuestra Canción
+</button>
+
+<button class="btn" onclick="mostrarMensaje()">
+💌 Abrir Mi Carta
+</button>
+
+<div id="mensaje" class="mensaje">
+
+<h2>Para Ti ❤️</h2>
+
+<br>
+
+<p>
+Hoy quiero recordarte lo especial que eres para mí.
+No existen suficientes palabras para describir lo mucho
+que significas en mi vida.
+
+Gracias por cada sonrisa,
+por cada momento compartido,
+por cada abrazo que me ha hecho sentir en casa.
+
+Tu cumpleaños no solo celebra un año más de vida,
+celebra la existencia de una persona increíble,
+capaz de iluminar cualquier lugar con su presencia.
+
+Deseo que cada uno de tus sueños se cumpla,
+que nunca te falten motivos para sonreír,
+y que la vida te devuelva multiplicado todo el amor
+que entregas a los demás.
+
+Te admiro,
+te valoro
+y te quiero muchísimo.
+
+❤️ Feliz cumpleaños ❤️
+
+Con todo mi amor.
+</p>
+
+</div>
+
+<div class="contador" id="contador">
+❤️ Contando momentos juntos...
+</div>
+
+<footer>
+Hecho con mucho amor para ti ❤️
+</footer>
+
+</div>
+
+<!-- CAMBIAR MUSICA -->
+<audio id="musica" loop>
+<source src="musica/cumple.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function reproducirMusica(){
+document.getElementById("musica").play();
+}
+
+function mostrarMensaje(){
+
+let mensaje=document.getElementById("mensaje");
+
+if(mensaje.style.display=="block"){
+mensaje.style.display="none";
+}else{
+mensaje.style.display="block";
+}
+}
+
+function crearCorazon(){
+
+const corazon=document.createElement("div");
+
+corazon.classList.add("corazon");
+corazon.innerHTML="❤️";
+
+corazon.style.left=Math.random()*100+"vw";
+corazon.style.fontSize=(Math.random()*20+20)+"px";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+corazon.remove();
+},8000);
+
+}
+
+setInterval(crearCorazon,300);
+
+const fechaInicio = new Date("2025-01-01");
+
+function actualizarContador(){
+
+const hoy = new Date();
+
+const diferencia = hoy - fechaInicio;
+
+const dias = Math.floor(diferencia/(1000*60*60*24));
+
+document.getElementById("contador").innerHTML=
+"❤️ Han pasado "+dias+" días desde que comenzaste a hacer mi vida más bonita.";
+}
+
+actualizarContador();
+
+</script>
+
+</body>
+</html> 
