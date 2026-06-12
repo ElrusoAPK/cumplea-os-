@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Feliz Cumpleaños ❤️</title>
+<title>Feliz Cumpleaños Maribel ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,130 +20,203 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+background:linear-gradient(
+135deg,
+#ff758c 0%,
+#ff7eb3 25%,
+#ffc3a0 50%,
+#ffd1dc 75%,
+#fff0f5 100%
+);
 min-height:100vh;
 overflow-x:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
+position:relative;
+}
+
+/* EFECTO BRILLO */
+.brillo{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background:
+radial-gradient(circle at 20% 20%, rgba(255,255,255,.7), transparent 20%),
+radial-gradient(circle at 80% 30%, rgba(255,255,255,.4), transparent 20%),
+radial-gradient(circle at 50% 80%, rgba(255,255,255,.5), transparent 25%);
+animation:destello 5s infinite alternate;
+}
+
+@keyframes destello{
+from{
+opacity:.5;
+}
+to{
+opacity:1;
+}
 }
 
 .container{
-max-width:900px;
+max-width:950px;
 width:100%;
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(15px);
-border-radius:25px;
-padding:30px;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(20px);
+border-radius:30px;
+padding:40px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-color:white;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+color:#222;
 position:relative;
 z-index:10;
+border:3px solid rgba(255,255,255,.8);
 }
 
 h1{
 font-family:'Dancing Script',cursive;
-font-size:4rem;
-margin-bottom:10px;
+font-size:5rem;
+color:#d63384;
+margin-bottom:15px;
+text-shadow:2px 2px 10px rgba(255,255,255,.8);
 }
 
 .subtitulo{
-font-size:1.2rem;
-margin-bottom:20px;
+font-size:1.25rem;
+line-height:1.8;
+color:#444;
+margin-bottom:25px;
 }
 
 .foto{
-width:250px;
-height:250px;
+width:280px;
+height:280px;
 object-fit:cover;
 border-radius:50%;
-border:6px solid white;
-box-shadow:0 0 25px rgba(255,255,255,.8);
+border:8px solid white;
+box-shadow:
+0 0 30px rgba(255,105,180,.6),
+0 0 60px rgba(255,255,255,.9);
 transition:.5s;
 }
 
 .foto:hover{
-transform:scale(1.05);
+transform:scale(1.08) rotate(3deg);
 }
 
 .btn{
-margin-top:20px;
-padding:15px 30px;
+margin-top:15px;
+margin-left:5px;
+margin-right:5px;
+padding:15px 35px;
 border:none;
 border-radius:50px;
-background:white;
-color:#ff4f7b;
+background:linear-gradient(
+45deg,
+#ff4d6d,
+#ff758f
+);
+color:white;
 font-size:1rem;
 font-weight:bold;
 cursor:pointer;
-transition:.3s;
+transition:.4s;
 }
 
 .btn:hover{
-transform:translateY(-3px);
-box-shadow:0 5px 20px rgba(255,255,255,.5);
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 10px 25px rgba(255,77,109,.5);
 }
 
 .mensaje{
-margin-top:25px;
+margin-top:30px;
 display:none;
-background:rgba(255,255,255,.2);
-padding:25px;
-border-radius:20px;
-line-height:1.8;
+background:white;
+padding:35px;
+border-radius:25px;
+line-height:2;
 font-size:1.1rem;
+color:#333;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+animation:aparecer .8s ease;
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .contador{
 margin-top:25px;
 font-size:1.2rem;
-font-weight:bold;
-}
-
-.corazon{
-position:fixed;
-font-size:20px;
-animation:flotar 8s linear infinite;
-opacity:.8;
-}
-
-@keyframes flotar{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-100px);
-opacity:0;
-}
+font-weight:600;
+color:#d63384;
 }
 
 footer{
 margin-top:25px;
-font-size:14px;
-opacity:.9;
+font-size:15px;
+color:#666;
+}
+
+/* CORAZONES */
+
+.corazon{
+position:fixed;
+bottom:-50px;
+animation:flotar linear forwards;
+z-index:1;
+pointer-events:none;
+}
+
+@keyframes flotar{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
 }
 
 </style>
+
 </head>
+
 <body>
+
+<div class="brillo"></div>
 
 <div class="container">
 
-<h1>🎂 Feliz Cumpleaños Maribel❤️</h1>
+<h1>🎂 Feliz Cumpleaños Maribel ❤️</h1>
 
 <p class="subtitulo">
-Hoy celebramos el día más bonito del año...
-porque nació la persona que hace más feliz mi corazón.
+Hoy es un día muy especial porque celebra el nacimiento
+de una persona maravillosa, alguien que con su sonrisa,
+su forma de ser y su presencia logra alegrar cualquier lugar.
+✨💖
 </p>
 
-<!-- CAMBIAR IMAGEN -->
-<img src="cumple.jpg" class="imagen">
+<!-- CAMBIA AQUÍ TU FOTO -->
+<img src="cumple.jpg" alt="Maribel" class="foto">
 
 <br>
 
@@ -155,50 +230,60 @@ porque nació la persona que hace más feliz mi corazón.
 
 <div id="mensaje" class="mensaje">
 
-<h2>Para Ti ❤️</h2>
-
-<br>
+<h2 style="color:#d63384; margin-bottom:15px;">
+Para Ti ❤️
+</h2>
 
 <p>
-Hoy quiero recordarte lo especial que eres para mí.
-No existen suficientes palabras para describir lo mucho
-que significas en mi vida.
 
-Gracias por cada sonrisa,
-por cada momento compartido,
-por cada abrazo que me ha hecho sentir en casa.
+Maribel:
 
-Tu cumpleaños no solo celebra un año más de vida,
-celebra la existencia de una persona increíble,
-capaz de iluminar cualquier lugar con su presencia.
+Hoy el mundo celebra tu cumpleaños,
+pero yo celebro algo mucho más especial:
+la fortuna de que existas.
 
-Deseo que cada uno de tus sueños se cumpla,
-que nunca te falten motivos para sonreír,
-y que la vida te devuelva multiplicado todo el amor
-que entregas a los demás.
+Desde que llegaste a mi vida,
+los días tienen más color,
+las sonrisas tienen más sentido
+y los momentos simples se convierten en recuerdos inolvidables.
 
-Te admiro,
-te valoro
-y te quiero muchísimo.
+Quiero que hoy recuerdes lo increíble que eres,
+lo valiosa que eres para quienes te rodean
+y lo mucho que iluminas la vida de las personas con tu forma de ser.
 
-❤️ Feliz cumpleaños ❤️
+Deseo que cada uno de tus sueños se haga realidad,
+que la felicidad te acompañe siempre,
+que nunca te falten razones para sonreír
+y que la vida te regale tantas alegrías
+como las que tú provocas en los demás.
 
-Con todo mi amor.
+Gracias por existir,
+gracias por ser tú,
+gracias por cada sonrisa que me has regalado.
+
+Hoy no solo cumples años...
+hoy el universo recuerda el día
+en que nació una persona maravillosa.
+
+✨ Feliz Cumpleaños Maribel ✨
+
+❤️ Con muchísimo cariño ❤️
+
 </p>
 
 </div>
 
 <div class="contador" id="contador">
-❤️ Contando momentos juntos...
+❤️ Contando momentos especiales...
 </div>
 
 <footer>
-Hecho con mucho amor para ti ❤️
+Hecho con mucho amor para una persona muy especial ❤️
 </footer>
 
 </div>
 
-<!-- CAMBIAR MUSICA -->
+<!-- CAMBIA AQUÍ TU MÚSICA -->
 <audio id="musica" loop>
 <source src="cumple.mp3" type="audio/mpeg">
 </audio>
@@ -211,34 +296,43 @@ document.getElementById("musica").play();
 
 function mostrarMensaje(){
 
-let mensaje=document.getElementById("mensaje");
+let mensaje = document.getElementById("mensaje");
 
-if(mensaje.style.display=="block"){
-mensaje.style.display="none";
+if(mensaje.style.display === "block"){
+mensaje.style.display = "none";
 }else{
-mensaje.style.display="block";
+mensaje.style.display = "block";
+mensaje.scrollIntoView({
+behavior:"smooth"
+});
 }
+
 }
+
+/* CORAZONES */
 
 function crearCorazon(){
 
-const corazon=document.createElement("div");
+const corazon = document.createElement("div");
 
-corazon.classList.add("corazon");
-corazon.innerHTML="❤️";
+corazon.className = "corazon";
+corazon.innerHTML = "❤️";
 
-corazon.style.left=Math.random()*100+"vw";
-corazon.style.fontSize=(Math.random()*20+20)+"px";
+corazon.style.left = Math.random() * 100 + "vw";
+corazon.style.fontSize = (20 + Math.random() * 25) + "px";
+corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
 
 document.body.appendChild(corazon);
 
 setTimeout(()=>{
 corazon.remove();
-},8000);
+},10000);
 
 }
 
-setInterval(crearCorazon,300);
+setInterval(crearCorazon,250);
+
+/* CONTADOR */
 
 const fechaInicio = new Date("2025-01-01");
 
@@ -248,10 +342,14 @@ const hoy = new Date();
 
 const diferencia = hoy - fechaInicio;
 
-const dias = Math.floor(diferencia/(1000*60*60*24));
+const dias = Math.floor(
+diferencia / (1000 * 60 * 60 * 24)
+);
 
-document.getElementById("contador").innerHTML=
-"❤️ Han pasado "+dias+" días desde que comenzaste a hacer mi vida más bonita.";
+document.getElementById("contador").innerHTML =
+"❤️ Han pasado " +
+dias +
+" días desde que llegaste a hacer más bonita mi vida.";
 }
 
 actualizarContador();
@@ -259,4 +357,4 @@ actualizarContador();
 </script>
 
 </body>
-</html> 
+</html>
